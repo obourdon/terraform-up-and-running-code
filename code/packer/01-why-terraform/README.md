@@ -9,8 +9,8 @@ For more info, please see Chapter 1, "Why Terraform", of
 
 ## Pre-requisites
 
-* You must have [Packer](https://www.packer.io/) installed on your computer. 
 * You must have an [Amazon Web Services (AWS) account](http://aws.amazon.com/).
+* You must have [Packer](https://www.packer.io/) installed on your computer but you can also use a docker images (see below).
 
 ## Quick start
 
@@ -31,4 +31,10 @@ To build the AMI:
 
 ```
 packer build webserver.json
+```
+
+or if you do not want to install Packer but use the official Docker image from HashCorp:
+
+```
+docker run -i -t -v $(pwd):/root -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY hashicorp/packer:light build /root/webserver.json
 ```
