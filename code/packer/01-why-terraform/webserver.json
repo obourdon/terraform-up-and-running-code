@@ -1,10 +1,16 @@
 {
+  "variables": {
+    "vpcid": "",
+    "subnetid": ""
+  },
   "builders": [{
+    "vpc_id": "{{user `vpcid`}}",
+    "subnet_id": "{{user `subnetid`}}",
     "ami_name": "packer-example",
     "instance_type": "t2.micro",
     "region": "eu-west-1",
     "type": "amazon-ebs",
-    "source_ami": "ami-40d28157",
+    "source_ami": "ami-0d77397e",
     "ssh_username": "ubuntu"
   }],
   "provisioners": [{
